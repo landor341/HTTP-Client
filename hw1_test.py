@@ -16,7 +16,7 @@ TEST_CASES = ['http://www.example.com',  # most basic example (with no slash)
               'http://info.cern.ch/images/NextEditorBW.gif',  # is an image
               'http://go.com/doesnotexist',  # causes 404
               'http://www.ifyouregisterthisforclassyouareoutofcontrol.com/', # NXDOMAIN
-              'http://www.asnt.org:8080/Test.html', # nonstandard port number
+              'http://www.portquiz.net:8080', # nonstandard port number
               'http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx' # chunked encoding
              ]
 
@@ -74,6 +74,7 @@ def compare_output(url, oracle=retrieve_url_oracle):
     except Exception as exc: # pylint: disable=broad-except
         print("uncaught exception ({}) for {}".format(type(exc).__name__, url))
         return
+
     if correct_output == student_output:
         print("correct output for {}".format(url))
     else:
